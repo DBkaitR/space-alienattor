@@ -1,3 +1,4 @@
+# Setup Background 
 scene.set_background_image(img("""
     f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
@@ -120,7 +121,10 @@ scene.set_background_image(img("""
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f
 """))
-MySprite = sprites.create(img("""
+
+
+# Setup Player 1
+Spaceship = sprites.create(img("""
         . . . . . . . . . . . . . . . . 
             . . . . . . . 9 . . . . . . . . 
             . . . . . . 9 . 9 . . . . . . . 
@@ -139,7 +143,17 @@ MySprite = sprites.create(img("""
             . . . . . . . . . . . . . . . .
     """),
     SpriteKind.player)
-controller.move_sprite(MySprite)
+
+
+# Setup player 2
+my_sprite = sprites.create(img(""" """))
+
+
+# Setup Player Controls
+controller.move_sprite(Spaceship)
+
+
+# Setup Enemy
 alien = sprites.create(img("""
         . . . . . . . . . . . . . . . . 
             . . . . . 7 7 7 7 7 . . . . . . 
@@ -159,3 +173,6 @@ alien = sprites.create(img("""
             . . . . . . . . . . . . . . . .
     """),
     SpriteKind.enemy)
+
+
+# Shoot enemies with projectiles

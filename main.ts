@@ -1,3 +1,4 @@
+//  Setup Background 
 scene.setBackgroundImage(img`
     f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
@@ -120,7 +121,8 @@ scene.setBackgroundImage(img`
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f
 `)
-let MySprite = sprites.create(img`
+//  Setup Player 1
+let Spaceship = sprites.create(img`
         . . . . . . . . . . . . . . . . 
             . . . . . . . 9 . . . . . . . . 
             . . . . . . 9 . 9 . . . . . . . 
@@ -138,7 +140,11 @@ let MySprite = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-controller.moveSprite(MySprite)
+//  Setup player 2
+let my_sprite = sprites.create(img` `)
+//  Setup Player Controls
+controller.moveSprite(Spaceship)
+//  Setup Enemy
 let alien = sprites.create(img`
         . . . . . . . . . . . . . . . . 
             . . . . . 7 7 7 7 7 . . . . . . 
