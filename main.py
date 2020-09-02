@@ -147,12 +147,11 @@ Spaceship = sprites.create(img("""
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
             """),
-info.set_life(1)
-Spaceship.set_flag(SpriteFlag.STAY_IN_SCREEN, True)
+Spaceship.set_flag(SpriteFlag.StayInScreen, True)
 
 
-# Setup Player Controls
-controller.move_sprite(Spaceship)
+# Configure Player Controls
+controller.move_sprite(Spaceship, 200, 200)
 
 
 # Setup Enemy
@@ -174,6 +173,5 @@ alien = sprites.create(img("""
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
     """),
-    SpriteKind.enemy)
 alien.set_flag(SpriteFlag.STAY_IN_SCREEN, True)
 alien.set_position(randint(0, 160), randint(80, 120))
