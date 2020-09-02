@@ -1,4 +1,10 @@
-//  Setup Background 
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function on_on_overlap(sprite: Sprite, otherSprite: Sprite) {
+    info.changeLifeBy(-1)
+})
+info.player1.onLifeZero(function on_player1_life_zero() {
+    info.player2.setLife(1)
+})
+//  Setup Background
 scene.setBackgroundImage(img`
     f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
@@ -140,8 +146,9 @@ let Spaceship = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
     `, SpriteKind.Player)
-//  Setup player 2
-let my_sprite = sprites.create(img` `)
+info.setLife(1)
+Spaceship.setFlag(SpriteFlag.StayInScreen, true)
+Spaceship.startEffect(effects.fire, 500)
 //  Setup Player Controls
 controller.moveSprite(Spaceship)
 //  Setup Enemy
@@ -163,3 +170,5 @@ let alien = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
     `, SpriteKind.Enemy)
+alien.setFlag(SpriteFlag.StayInScreen, true)
+alien.setPosition(randint(0, 160), randint(80, 120))
