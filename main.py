@@ -1,11 +1,3 @@
-def on_on_overlap(sprite, otherSprite):
-    info.change_life_by(-1)
-sprites.on_overlap(SpriteKind.enemy, SpriteKind.player, on_on_overlap)
-
-def on_player1_life_zero():
-    info.player2.set_life(1)
-info.player1.on_life_zero(on_player1_life_zero)
-
 # Setup Background
 scene.set_background_image(img("""
     f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
@@ -129,6 +121,13 @@ scene.set_background_image(img("""
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f
 """))
+
+
+# Setup game
+info.set_score(0)
+info.set_life(3)
+
+
 # Setup Player 1
 Spaceship = sprites.create(img("""
         . . . . . . . . . . . . . . . . 
@@ -147,13 +146,15 @@ Spaceship = sprites.create(img("""
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . .
-    """),
-    SpriteKind.player)
+            """),
 info.set_life(1)
 Spaceship.set_flag(SpriteFlag.STAY_IN_SCREEN, True)
-Spaceship.start_effect(effects.fire, 500)
+
+
 # Setup Player Controls
 controller.move_sprite(Spaceship)
+
+
 # Setup Enemy
 alien = sprites.create(img("""
         . . . . . . . . . . . . . . . . 

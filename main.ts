@@ -1,9 +1,3 @@
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function on_on_overlap(sprite: Sprite, otherSprite: Sprite) {
-    info.changeLifeBy(-1)
-})
-info.player1.onLifeZero(function on_player1_life_zero() {
-    info.player2.setLife(1)
-})
 //  Setup Background
 scene.setBackgroundImage(img`
     f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
@@ -127,6 +121,9 @@ scene.setBackgroundImage(img`
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f
 `)
+//  Setup game
+info.setScore(0)
+info.setLife(3)
 //  Setup Player 1
 let Spaceship = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -148,7 +145,6 @@ let Spaceship = sprites.create(img`
     `, SpriteKind.Player)
 info.setLife(1)
 Spaceship.setFlag(SpriteFlag.StayInScreen, true)
-Spaceship.startEffect(effects.fire, 500)
 //  Setup Player Controls
 controller.moveSprite(Spaceship)
 //  Setup Enemy
