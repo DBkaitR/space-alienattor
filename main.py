@@ -222,4 +222,32 @@ def on_alien_blasted(sprite, otherSprite):
     if info.score() % 10 == 0:
       info.change_life_by(1) 
 
-sprites.on_overlap(SpriteKind.projectile, SpriteKind.enemy, on_alien_blasted) 
+sprites.on_overlap(SpriteKind.projectile, SpriteKind.enemy, on_alien_blasted)  
+
+
+# Setup Player 2
+def on_destroyed(spaceship):
+    UFO = sprites.create(img("""
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . 3 3 3 3 3 . . . . . .
+    . . . . 3 . . . . . 3 . . . . .
+    . . . . 3 3 3 3 3 3 3 . . . . .
+    . . . 3 . . . . . . . 3 . . . .
+    . . . 3 . . . . . . . 3 . . . .
+    . . . . 3 3 3 3 3 3 3 . . . . .
+    . . . . 3 . 3 . 3 . 3 . . . . .
+    . . . . . 3 . . . 3 . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    """))
+    UFO.set_position(10,scene.screen_height()/2)
+    UFO.set_flag(SpriteFlag.StayInScreen, True)
+    UFO.set_kind(SpriteKind.player) 
+    sprites.on_destroyed(SpriteKind.player, on_destroyed)
+    # Configure Player 2 Controls
+    controller.move_sprite(UFO, 200, 200 ) 

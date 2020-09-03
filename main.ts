@@ -208,3 +208,4 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function on_alien_bla
     }
     
 })
+//  Setup Player 2
