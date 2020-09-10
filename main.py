@@ -249,5 +249,28 @@ def on_destroyed(spaceship):
     UFO.set_flag(SpriteFlag.StayInScreen, True)
     UFO.set_kind(SpriteKind.player) 
     sprites.on_destroyed(SpriteKind.player, on_destroyed)
-    # Configure Player 2 Controls
+
+
+# Configure Player 2 Controls
     controller.move_sprite(UFO, 200, 200 ) 
+
+# Shoot enemies with projectiles 
+def on_button_event_a_pressed():
+    blast = sprites.create_projectile_from_sprite(img("""
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . 2 2 2 . . . . . . .
+        . . . . . . 2 2 2 . . . . . . .
+        . . . . . . 2 2 2 . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+    """), UFO, 50, 0)

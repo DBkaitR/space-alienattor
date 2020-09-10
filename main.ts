@@ -209,3 +209,22 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function on_alien_bla
     
 })
 //  Setup Player 2
+//  Shoot enemies with projectiles 
+let blast = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . 2 2 2 . . . . . . .
+        . . . . . . 2 2 2 . . . . . . .
+        . . . . . . 2 2 2 . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+    `, spaceship, 50, 0)
